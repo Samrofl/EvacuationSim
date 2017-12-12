@@ -1,0 +1,66 @@
+Scenario.name = default_scenario
+Scenario.simulateConnections = false
+Scenario.updateInterval = 1
+# 43k ~= 12h
+Scenario.endTime = 700k
+
+Scenario.nrofHostGroups = 1
+
+###################################
+### common settings for all groups
+Group.movementModel = CognitiveHeuristicMovement
+
+Group.waitTime = 0, 0
+# walking speeds
+Group.speed = 0.5, 1.5
+Group.evacPoints = 250,500
+
+Group.nrofHosts = 2
+Events1.hosts = 0, 2
+
+
+####################################################
+
+# seed for movement models' pseudo random number generator (default = 0)
+MovementModel.rngSeed = [2; 8372; 98092; 18293; 777]
+#MovementModel.rngSeed = [2; 8372]
+#MovementModel.rngSeed = 8372
+
+# World's size for Movement Models without implicit size (width, height; meters)
+MovementModel.worldSize = 500, 500
+# How long time to move hosts in the world before real simulation
+MovementModel.warmup = 0
+
+RoomBasedMovement.width = 500
+RoomBasedMovement.height = 500
+RoomBasedMovement.noOfObstacles = 1
+#                                   centreX centreY width   height  rotation
+RoomBasedMovement.obstacles =       450,    50,     50,     5,     0
+
+
+CognitiveMovement.stoppingTime = 1
+CognitiveMovement.horizon = 50
+CognitiveMovement.resolution = 0.02
+
+## Optimization settings -- these affect the speed of the simulation
+## see World class for details.
+Optimization.connectionAlg = 2
+Optimization.cellSizeMult = 5
+Optimization.randomizeUpdateOrder = true
+
+
+## GUI settings
+
+# GUI underlay image settings
+GUI.UnderlayImage.fileName = data/Evac/pav_gardens.png
+# Image offset in pixels (x, y)
+GUI.UnderlayImage.offset = -100, -300
+# Scaling factor for the image
+GUI.UnderlayImage.scale = 1
+# Image rotation (radians)
+GUI.UnderlayImage.rotate = -0.015
+
+# how many events to show in the log panel (default = 30)
+GUI.EventLogPanel.nrofEvents = 200
+# Regular Expression log filter (see Pattern-class from the Java API for RE-matching details)
+#GUI.EventLogPanel.REfilter = .*p[1-9]<->p[1-9]$
